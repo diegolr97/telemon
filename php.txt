@@ -1,0 +1,114 @@
+<table class="table table-bordered table-striped">
+                                    <caption>Lineas de Personas*</caption>
+                                    <thead class="hola">
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">NOMBRE</th>
+                                            <th scope="col" colspan="2">OPERACIONES</th>
+                                            
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                include("conexion.php");
+                                $consulta="SELECT * FROM persona";
+                                $resultado=$conexion->query($consulta);
+                                while($row=$resultado->fetch_assoc())
+                                {
+                                    echo "<tr>";
+                                    echo "<td>"; echo $row['idPersona']; echo "</td>";
+                                    echo "<td>"; echo $row['nombre']; echo "</td>";
+                                    echo "<td> <a href='procesoModificarPersona.php?codigo=".$row['idPersona']."'><button type='button' class='btn btn-success'>Modificar</button> </a> </td>";
+                                    echo "<td> <a href='eliminarPersona.php?codigo=".$row['idPersona']."'><button type='button' class='btn btn-danger'>Eliminar</button> </a> </td>";
+                                    echo "</tr>";
+                                       
+                                }
+                                
+                                ?>
+                                          
+                                            
+
+
+                                    </tbody>
+                                </table>
+////////////////////////////////////////
+ <table class="table table-bordered table-striped">
+                            <caption>Lista de teléfonos*</caption>
+                            <thead class="hola">
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Telefono Largo</th>
+                                            <th scope="col">Telefono Corto</th>
+                                            <th scope="col">En Uso</th>
+                                            <th scope="col">Tarifa</th>
+                                            <th scope="col" colspan="2">OPERACIONES</th>
+                                            
+                                            
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                               <?php
+                                include("conexion.php");
+                                $consulta="SELECT * FROM linea";
+                                $resultado=$conexion->query($consulta);
+                                while($row=$resultado->fetch_assoc())
+                                {
+                                    echo "<tr>";
+                                    echo "<td>"; echo $row['idLinea']; echo "</td>";
+                                    echo "<td>"; echo $row['telefonoL']; echo "</td>";
+                                    echo "<td>"; echo $row['telefonoC']; echo "</td>";
+                                    echo "<td>"; echo $row['enUso']; echo "</td>";
+                                    echo "<td>"; echo $row['tarifa']; echo "</td>";
+                                    echo "<td> <a href='procesoModificarLinea.php?codigo=".$row['idLinea']."'><button type='button' class='btn btn-success'>Modificar</button> </a> </td>";
+                                    echo "<td> <a href='eliminarLinea.php?codigo=".$row['idLinea']."'><button type='button' class='btn btn-danger'>Eliminar</button> </a> </td>";
+                                    echo "</tr>";
+                                       
+                                }
+                                
+                                ?>
+                            </tbody>
+                        </table>
+                        ----------------------------------------
+                        <h3 class="tittle">Observaciones</h3>
+                    <form action="insertarObservacionLinea.php?codigo2=<?php echo $row2['idLinea']; ?>" method="POST">
+
+                        <div class="form-group">
+                            <label for="textAreaObservacion">Descripcion</label>
+                            <textarea class="form-control" name="textAreaObservacion" id="textAreaObservacion" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Añadir</button>
+
+                    </form>
+                    <hr>
+
+                    <?php
+            $codigo=$_GET['codigo'];
+            include("conexion.php");
+            $consulta="SELECT * FROM observaciones where idLinea='$codigo'";
+            $resultado=$conexion->query($consulta);
+            while($row3=$resultado->fetch_assoc()){
+                echo "<div id='accordion'>";
+                echo "<div class='card'>";
+                        echo "<div class='card-header' id='headingTwo'>";
+                            echo "<h5 class='mb-0'>";
+                                echo "<button class='btn btn-link collapsed' data-toggle='collapse' data-target='"; echo "#"; echo $row3['idObservacion']; echo "'"; echo "aria-expanded='false' aria-controls='collapseTwo'>"; echo $row3['fecha']; echo "</button>";
+                            echo "</h5>";
+                        echo "</div>";
+                        echo "<div id='"; echo $row3['idObservacion']; echo"'"; echo "class='collapse' aria-labelledby='headingTwo' data-parent='#accordion'>";
+                            echo "<div class='card-body'>";
+                 echo "<textarea class='form-control' id='exampleFormControlTextarea1' rows='3'>";
+                     echo $row3['descripcion'];
+                     echo "</textarea>";
+                                echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                
+            
+                  
+                    
+            }
+                        
+                        ?>

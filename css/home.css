@@ -1,0 +1,12 @@
+.tittle{
+    background-color: #007bbf;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    border-radius: 0px 0px 10px 10px;
+}
+
+div>table>thead.hola>tr{
+    background-color: #007bbf;
+    
+}

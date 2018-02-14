@@ -1,0 +1,21 @@
+.tittle{
+    background-color: #007bbf;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.pedro{
+   background-color: floralwhite;
+}
+
+.login-form{
+    box-shadow: 0px 0px 0px 1px grey;
+    border-radius: 8px;
+    padding-top: 20px
+}
+div>table>thead.hola>tr{
+    background-color: #007bbf;
+    
+}

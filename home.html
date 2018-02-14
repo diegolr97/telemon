@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Empieza Head-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/home.css">
+    <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="mostrarPersonas.js"></script>
+    <script src="mostrarLineas.js"></script>
+    <script src="mostrarLineaPersona.js"></script>
+</head>
+<!--Termina Head-->
+
+<!--Empieza Body-->
+
+<body>
+    <!--Título-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="tittle">TELEFONOS AYUNTAMIENTO MONTELLANO</h1>
+            </div>
+
+        </div>
+        <!-- Fin Título-->
+
+        <!--tabbel panel-->
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#Lineas" role="tab" aria-controls="home" aria-selected="true">Lineas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Personas" role="tab" aria-controls="profile" aria-selected="false">Personas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#Telefonos" role="tab" aria-controls="contact" aria-selected="false">Telefonos</a>
+                    </li>
+                </ul>
+                <br>
+                <!--Empieza el contenido de los tabble panel-->
+                <div class="tab-content" id="myTabContent">
+                    <!--primer tabble panel-->
+                    <div class="tab-pane fade show active" id="Lineas" role="tabpanel" aria-labelledby="home-tab">
+                       <div class="row justify-content-center">
+                            <div id="tabla_resultado3" class="col-md-10">
+                               
+                               
+                             </div>
+
+                        </div> 
+
+                    </div>
+                    <!--termina primer tabble panel-->
+
+                    <!--segundo tabble panel-->
+                    <div class="tab-pane fade" id="Personas" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 offset-lg-1 ">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Añadir Persona</button>
+                            </div>
+
+                            <div class="col-lg-5 col-md-5 offset-lg-1">
+                            <form action="" class="form-inline">
+                                <input type="text" class="form-control" name="busqueda" id="busqueda" placeholder="Nombre de la Persona...">
+                            </form>    
+                        
+                                    
+                            </div>
+                            
+                        </div>
+
+                        <hr>
+                        <div class="row justify-content-center">
+                            <div id="tabla_resultado" class="col-md-10">
+                               
+                               
+                                
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--termina segundo tabble panel-->
+
+                    <!--tercer tabble panel-->
+                    <div class="tab-pane fade" id="Telefonos" role="tabpanel" aria-labelledby="contact-tab">
+                        <div class="row">
+                            <div class="col-lg-5 offset-lg-1">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Añadir Linea</button>
+                            </div>
+                            <div class="col-lg-5 col-md-5 offset-lg-1">
+                               <form action="" class="form-inline">
+                                  <input type="text" class="form-control" mae="txtbuscarTelefono" placeholder="Numero de teléfono..."> 
+                               </form>
+                                </div>
+                        </div>
+
+                        <hr>
+                        <div class="row justify-content-center">
+                        <div id="tabla_resultado2" class="col-md-10">
+                            </div>
+                         </div>
+                       
+                    </div>
+                    <!--termina tercer tabble panel-->
+                </div>
+                <!--                Termina el contenido de los tabble panel-->
+
+            </div>
+
+        </div>
+        <!--        Termina tabbel Panel-->
+
+        <!--    primer modal-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Formulario Persona</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="insertarPersona.php" method="POST">
+                            <div class="form-group">
+                                <label for="nombrePersona">Nombre</label>
+                                <input type="text" name="nombrePersona" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Termina primer modal-->
+
+        <!--        empieza segundo modal-->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Formulario Linea</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          
+        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="insertarLinea.php" method="POST">
+                            <div class="form-group">
+                                <label for="telefonoL">Teléfono Largo</label>
+                                <input type="text" name="telefonoL" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefonoC">Teléfono Corto</label>
+                                <input type="text" name="telefonoC" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="tarifa">Tarifa</label>
+                                <input type="text" name="tarifa" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--    termina seguno modal-->
+
+    </div>
+
+
+    <!--   JQuery, Poppers, JavaScriptBootstrap-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+<!--Termina Body-->
+
+</html>
