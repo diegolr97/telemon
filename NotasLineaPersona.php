@@ -15,7 +15,7 @@
         <?php
             $codigo=$_GET['codigo'];
             include("conexion.php");
-            $consulta="SELECT * FROM linea a, lineapersona b, persona c where a.idLinea=b.idLinea and b.idPersona=c.idPersona and a.idLinea='$codigo'";
+            $consulta="SELECT * FROM linea a, lineapersona b, persona c where a.idLinea=b.idLinea and b.idPersona=c.idPersona and a.idLinea='$codigo' and b.activo='Si'";
             $resultado=$conexion->query($consulta);
             $row2=$resultado->fetch_assoc();
                 ?>

@@ -12,12 +12,7 @@
 
 <body>
     <div class="container">
-
-
-        <h1 class="tittle">Asignar Linea</h1>
-        <hr>
-        <div class="row">
-            <?php
+    <?php
                                 $codigo=$_GET['codigo'];
                                 include("conexion.php");
                                 $consulta="SELECT * FROM persona WHERE idPersona='$codigo'";
@@ -25,6 +20,13 @@
                                 $row=$resultado->fetch_assoc();
                                 
                  ?>
+
+
+        <h1 class="tittle"> Asignar Linea | <label><?php echo "(".$row['nombre'].")";?></label></h1>
+        
+        <hr>
+        <div class="row">
+            
                 <div class="login-form col-md-4 offset-md-4 pedro">
                     <form action="insertarLineaPersona.php?codigo2=<?php echo $row['idPersona']; ?>" method="POST">
 

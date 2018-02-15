@@ -35,7 +35,7 @@ if($buscarLineaPersona->num_rows > 0)
                 <td>'.$filaLineaPersona['telefonoC'].'</td>
                 <td>'.$filaLineaPersona['tarifa'].'GB</td>
                 <td>'.$filaLineaPersona['fAlta'].'</td>
-                <td><a href="bajaLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-warning">Baja</button> </a><a href="procesoLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-success">Consumo</button> </a><a href="HistoricoLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-success">Historico</button> </a><a href="notasLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-success">Notas</button> </a></td>
+                <td><a href="procesoBajaLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-warning">Baja</button> </a><a href="procesoLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-success">Consumo</button> </a><a href="HistoricoLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-success">Historico</button> </a><a href="notasLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-success">Notas</button> </a></td>
                 </tr>';
     }
         $tabla.='</tbody></table>';

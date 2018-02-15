@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/procesoModificarLinea.css">
+    <link rel="stylesheet" href="css/procesoBajaLineaPersona.css">
 
 </head>
 
@@ -15,35 +15,27 @@
         <?php
                                 $codigo=$_GET['codigo'];
                                 include("conexion.php");
-                                $resultado=$conexion->query(sprintf("SELECT * FROM linea WHERE idLinea='%s'", mysqli_real_escape_string($conexion, $codigo)));
+                                $consulta="SELECT * FROM linea WHERE idLinea='$codigo'";
+                                $resultado=$conexion->query($consulta);
                                 $row=$resultado->fetch_assoc();
-            
                                 
                  ?>
 
-            <h1 class="tittle"> Modificar Telefono | <label><?php echo "(".$row['telefonoC'].")";?></label></h1>
-
-            <hr>
-            <div class="row">
-
+        <h1 class="tittle"> Baja Linea | <label><?php echo "(".$row['telefonoC'].")";?></label>  </h1>
+        <hr>
+        <div class="row">
+            
                 <div class="login-form col-md-4 offset-md-4 pedro">
-                    <form action="modificarLinea.php?codigo2=<?php echo $row['idLinea']; ?>" method="POST">
+                    <form action="bajaLineaPersona.php?codigo2=<?php echo $row['idLinea']; ?>" method="POST">
 
                         <div class="form-group">
-                            <label for="telefonoLLineaModificar">Teléfono Largo</label>
-                            <input type="text" name="telefonoLLineaModificar" class="form-control" value="<?php echo $row['telefonoL']; ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="telefonoCLineaModificar">Teléfono Corto</label>
-                            <input type="text" name="telefonoCLineaModificar" class="form-control" value="<?php echo $row['telefonoC']; ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="TarifaLinea">Tarifa</label>
-                            <input type="text" name="TarifaLinea" class="form-control" value="<?php echo $row['tarifa']; ?>">
+                            <label for="fBajaInsertarLineaPersona">Fecha Baja</label>
+                            <input type="text" class="form-control" name="fBajaInsertarLineaPersona" id="fBajaInsertarLineaPersona" value="<?php echo date("Y-m-d");?>">
+
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-9"><button type="submit" class="btn btn-primary btn-block">Modificar</button></div>
+                            <div class="col-lg-9"><button type="submit" class="btn btn-primary btn-block">Baja</button></div>
                             <div class="col"><a class="btn btn-danger" href="home.html">Atrás</a></div>
                         </div>
 
@@ -52,7 +44,7 @@
                     </form>
                 </div>
 
-            </div>
+        </div>
 
     </div>
 

@@ -12,12 +12,7 @@
 
 <body>
     <div class="container">
-
-
-        <h1 class="tittle">Modificar Persona</h1>
-        <hr>
-        <div class="row">
-                <?php
+        <?php
                                 $codigo=$_GET['codigo'];
                                 include("conexion.php");
                                 $consulta="SELECT * FROM persona WHERE idPersona='$codigo'";
@@ -25,9 +20,15 @@
                                 $row=$resultado->fetch_assoc();
                                 
                  ?>
-            <div class="login-form col-md-4 offset-md-4 pedro">
-                <form action="modificarPersona.php?codigo2=<?php echo $row['idPersona']; ?>" method="POST">
-                    
+
+            <h1 class="tittle"> Modificar Persona | <label><?php echo "(".$row['nombre'].")";?></label></h1>
+
+            <hr>
+            <div class="row">
+
+                <div class="login-form col-md-4 offset-md-4 pedro">
+                    <form action="modificarPersona.php?codigo2=<?php echo $row['idPersona']; ?>" method="POST">
+
                         <div class="form-group">
                             <label for="nombrePersonaModificar">Nombre</label>
                             <input type="text" name="nombrePersonaModificar" class="form-control" placeholder="Escriba el nuevo nombre..." value="<?php echo $row['nombre']; ?>">
@@ -40,10 +41,10 @@
 
 
                         <br>
-                </form>
-            </div>
+                    </form>
+                </div>
 
-        </div>
+            </div>
 
     </div>
 
