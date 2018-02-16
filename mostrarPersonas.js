@@ -26,3 +26,11 @@ $(document).on('keyup', '#busqueda', function()
 			obtener_registros();
 		}
 });
+
+$(document).ready(function(){
+$('#busqueda').keyup(function(){
+
+	console.log($(this).val());
+});
+	
+});
