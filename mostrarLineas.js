@@ -1,15 +1,22 @@
-$(obtener_registros());
+buscarTelefonos();
+function buscarTelefonos(){
+    var busqueda = document.getElementById('busqueda2').value;
+    var solicitud = new XMLHttpRequest();
+    var data  = new FormData();
+    var url = 'mostrarLineas.php';
 
-function obtener_registros(lineas)
-{
-	$.ajax({
-		url : 'mostrarLineas.php',
-		type : 'POST',
-		dataType : 'html',
-		data : { lineas: lineas },
-		})
+    data.append("busqueda2", busqueda);
+    solicitud.open('POST',url, true);
+    solicitud.send(data);
 
-	.done(function(resultado){
-		$("#tabla_resultado2").html(resultado);
-	})
+    solicitud.addEventListener('load', function(e){
+
+        var cajadatos = document.getElementById('datos2');
+        cajadatos.innerHTML = e.target.responseText;
+        
+    }, false);
 }
+
+window.addEventListener('load', function(){
+    document.getElementById('busqueda2').addEventListener('input', buscarTelefonos, false);
+}, false);

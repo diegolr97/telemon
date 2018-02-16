@@ -4,12 +4,12 @@ include("conexion.php");
 $tabla="";
 $query="SELECT * FROM linea ORDER BY idLinea ";
 
-if(isset($_POST['lineas']))
+if(isset($_POST['busqueda2']))
 {
-    $q=$conexion->real_escape_string($_POST['lineas']);
-    $query="SELECT * FROM linea WHERE
-        idLinea LIKE '%".$q."%' OR
-        telefonoC LIKE '%".$q."%'";
+    $q=$conexion->real_escape_string($_POST['busqueda2']);
+    $query="SELECT * FROM linea WHERE 
+    telefonoL LIKE '%".$q."%' OR 
+    telefonoC LIKE '%".$q."%'";
 }
 
 $buscarLineas=$conexion->query($query);

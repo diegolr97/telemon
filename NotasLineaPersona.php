@@ -24,7 +24,7 @@
         
         <hr>
         <h3 class="tittle">Notas/Recordatorio</h3>
-                    <form action="insertarObservacionLinea.php?codigo2=<?php echo $row2['idLinea']; ?>" method="POST">
+                    <form action="insertarNotaLinea.php?codigo2=<?php echo $row2['idLinea']; ?>" method="POST">
 
                         <div class="form-group">
                             <label for="textAreaObservacion">Descripcion</label>
@@ -50,7 +50,7 @@
                         echo "</div>";
                         echo "<div id='"; echo $row3['idObservacion']; echo"'"; echo "class='collapse' aria-labelledby='headingTwo' data-parent='#accordion'>";
                             echo "<div class='card-body'>";
-                 echo "<textarea class='form-control' id='exampleFormControlTextarea1' rows='3'>";
+                 echo "<textarea readonly class='form-control' id='exampleFormControlTextarea1' rows='3'>";
                      echo $row3['descripcion'];
                      echo "</textarea>";
                                 echo "</div>";

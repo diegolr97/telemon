@@ -1,17 +1,19 @@
 <?php
 include("conexion.php");
 $codigo=$_GET['codigo2'];
-$text=$_POST['textAreaObservacion'];
+$observacion=$_POST['areaObservacion'];
+
+
+$consulta="UPDATE lineapersona SET observacion='$observacion' WHERE idLinea='$codigo' and activo='Si'";
+$resultado= mysqli_query($conexion, $consulta);
+    
+if($resultado){
+    echo '<script language="javascript"> alert("Se ha guardado la observacion"); window.location="home.html"; </script>';
+}
+
 
 //conectar a la base de datos
-$consulta="INSERT INTO observaciones (idLinea, descripcion, fecha) VALUES ('$codigo', '$text','".date('Y-m-d H:i:s')."')";
-$resultado= mysqli_query($conexion, $consulta);
 
-if($resultado){
-    echo '<script language="javascript"> alert("Se ha añadido la observacion correctamente"); window.location="home.html"; </script>';
-}else{
-    printf("Errormessage: %s\n", $conexion->error);
-}
 
 
 mysqli_close($conexion);

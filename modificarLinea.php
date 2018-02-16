@@ -17,7 +17,7 @@ if(empty($telefonoL) || empty($telefonoC) || empty($tarifa)){
         $consulta="UPDATE linea SET telefonoL='$telefonoL', telefonoC='$telefonoC', tarifa='$tarifa' WHERE idLinea='$codigo'";
         $resultado= mysqli_query($conexion, $consulta);
         if($resultado){
-           echo '<script language="javascript"> alert("Se ha modificado un telefono nuevo"); window.location="home.html"; </script>'; 
+           echo '<script language="javascript"> alert("Se ha modificado el telefono correctamente"); window.location="home.html"; </script>'; 
         }
          
     }

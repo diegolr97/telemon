@@ -1,15 +1,19 @@
 <?php
 include("conexion.php");
 
-$query="SELECT * FROM lineapersona";
-
 $tabla="";
-$query2="SELECT * FROM linea a, persona b, lineapersona c WHERE b.idPersona=c.idPersona and c.idLinea=a.idLinea and c.activo='Si'";
+$query="SELECT * FROM linea a, persona b, lineapersona c WHERE b.idPersona=c.idPersona and c.idLinea=a.idLinea and c.activo='Si'";
+
+if(isset($_POST['busqueda3']))
+{
+    $q=$conexion->real_escape_string($_POST['busqueda3']);
+    $query="SELECT * FROM linea a, persona b, lineapersona c WHERE b.idPersona=c.idPersona and c.idLinea=a.idLinea and c.activo='Si' and a.telefonoC LIKE '%".$q."%' OR b.nombre LIKE '%".$q."%'";
+}
 
 
 
 $buscarLineaPersona=$conexion->query($query);
-$buscarLineaPersona2=$conexion->query($query2);
+
 if($buscarLineaPersona->num_rows > 0)
 {
     
@@ -27,7 +31,7 @@ if($buscarLineaPersona->num_rows > 0)
                  </tr>
                </thead>
                <tbody>';
-    while($filaLineaPersona= $buscarLineaPersona2->fetch_assoc())
+    while($filaLineaPersona= $buscarLineaPersona->fetch_assoc())
     {
         $tabla.=
             '<tr>

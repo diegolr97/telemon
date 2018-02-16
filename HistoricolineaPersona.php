@@ -61,10 +61,10 @@
                 </div>
                 <div class="col-lg-6">
                     <h3 class="tittle">Observaciones de la Linea</h3>
-                <form action="">
+                <form action="insertarObservacionLinea.php?codigo2=<?php echo $row2['idLinea']; ?>" method="POST">
                     <div class="form-group">
                         
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="25"><?php echo $row2['observacion'];?></textarea>
+                        <textarea name="areaObservacion" class="form-control" id="exampleFormControlTextarea1" rows="25"><?php echo $row2['observacion'];?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Guardar</button>
 

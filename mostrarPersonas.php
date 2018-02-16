@@ -1,12 +1,14 @@
 <?php
+
+
 include("conexion.php");
 
 $tabla="";
 $query="SELECT * FROM persona ORDER BY idPersona";
 
-if(isset($_POST['personas']))
+if(isset($_POST['busqueda']))
 {
-    $q=$conexion->real_escape_string($_POST['personas']);
+    $q=$conexion->real_escape_string($_POST['busqueda']);
     $query="SELECT * FROM persona WHERE
         idPersona LIKE '%".$q."%' OR
         nombre LIKE '%".$q."%'";

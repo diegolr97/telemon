@@ -1,15 +1,22 @@
-$(obtener_registros());
+buscarLineas();
+function buscarLineas(){
+    var busqueda = document.getElementById('busqueda3').value;
+    var solicitud = new XMLHttpRequest();
+    var data  = new FormData();
+    var url = 'mostrarLineaPersona.php';
 
-function obtener_registros(lineapersona)
-{
-	$.ajax({
-		url : 'mostrarLineaPersona.php',
-		type : 'POST',
-		dataType : 'html',
-		data : { lineapersona: lineapersona },
-		})
+    data.append("busqueda3", busqueda);
+    solicitud.open('POST',url, true);
+    solicitud.send(data);
 
-	.done(function(resultado){
-		$("#tabla_resultado3").html(resultado);
-	})
+    solicitud.addEventListener('load', function(e){
+
+        var cajadatos = document.getElementById('datos3');
+        cajadatos.innerHTML = e.target.responseText;
+        
+    }, false);
 }
+
+window.addEventListener('load', function(){
+    document.getElementById('busqueda3').addEventListener('input', buscarLineas, false);
+}, false);

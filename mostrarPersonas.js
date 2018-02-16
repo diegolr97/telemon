@@ -1,36 +1,22 @@
-$(obtener_registros());
+buscarPersonas();
+function buscarPersonas(){
+    var busqueda = document.getElementById('busqueda').value;
+    var solicitud = new XMLHttpRequest();
+    var data  = new FormData();
+    var url = 'mostrarPersonas.php';
 
-function obtener_registros(personas)
-{
-	$.ajax({
-		url : 'mostrarPersonas.php',
-		type : 'POST',
-		dataType : 'html',
-		data : { personas: personas },
-		})
+    data.append("busqueda", busqueda);
+    solicitud.open('POST',url, true);
+    solicitud.send(data);
 
-	.done(function(resultado){
-		$("#tabla_resultado").html(resultado);
-	})
+    solicitud.addEventListener('load', function(e){
+
+        var cajadatos = document.getElementById('datos');
+        cajadatos.innerHTML = e.target.responseText;
+        
+    }, false);
 }
 
-$(document).on('keyup', '#busqueda', function()
-{
-	var valorBusqueda=$(this).val();
-	if (valorBusqueda!="")
-	{
-		obtener_registros(valorBusqueda);
-	}
-	else
-		{
-			obtener_registros();
-		}
-});
-
-$(document).ready(function(){
-$('#busqueda').keyup(function(){
-
-	console.log($(this).val());
-});
-	
-});
+window.addEventListener('load', function(){
+    document.getElementById('busqueda').addEventListener('input', buscarPersonas, false);
+}, false);
