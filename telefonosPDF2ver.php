@@ -7,10 +7,10 @@ if(isset($_POST['export2'])){
 class myPDF extends FPDF{
     function header(){
         $this->SetFont('Arial','B',14);
-        $this->Cell(276,5,'Ayuntamiento Montellano',0,0,'C');
+        $this->Cell(200,5,'Ayuntamiento Montellano',0,0,'C');
         $this->Ln();
         $this->SetFont('Times','',12);
-        $this->Cell(276,10,'Telefonos',0,0,'C');
+        $this->Cell(200,10,'Telefonos',0,0,'C');
         $this->Ln(20);
     }
     function footer(){
@@ -19,7 +19,7 @@ class myPDF extends FPDF{
         $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
     }
     function headerTable(){
-        $this->SetX(65);
+        $this->SetX(21);
         $this->SetFont('Times','B',12);
         $this->Cell(20,10,'ID',1,0,'C');
         $this->Cell(40,10,'TelefonoC',1,0,'C');
@@ -33,7 +33,7 @@ class myPDF extends FPDF{
     $resultado = $conexion->query($query);
     while($row=$resultado->fetch_assoc())
     {
-        $this->SetX(65);
+        $this->SetX(21);
         $this->SetFont('Times','B',12);
         $this->Cell(20,10,$row['idLinea'],1,0,'C');
         $this->Cell(40,10,$row['telefonoC'],1,0,'C');
@@ -49,7 +49,7 @@ class myPDF extends FPDF{
 
 $pdf = new myPDF();
 $pdf->AliasNbPages();
-$pdf->AddPage('L','A4',0);
+$pdf->AddPage();
 $pdf->headerTable();
 $pdf->viewTable($conexion);
 $pdf->Output();
