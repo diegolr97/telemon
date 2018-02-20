@@ -3,20 +3,20 @@
 //export.php  
 include("conexion.php");
 $output = '';
-if(isset($_POST["export"]))
+if(isset($_POST["lineasCalc"]))
 {
- $query = "SELECT * FROM linea";
+ $query = "SELECT * FROM linea a, lineapersona b, persona c WHERE a.idLinea=b.idLinea and b.idPersona=c.idPersona and b.activo='Si'";
  $resultado = mysqli_query($conexion, $query);
  if(mysqli_num_rows($resultado)>0)
  {
   $output .= '
    <table class="table" bordered="1">  
                     <tr>  
-                         <th>ID</th>  
+                         <th>Nombre</th>  
                          <th>telefonoC</th>
-                         <th>telefonoL</th>  
-                         <th>enUso</th> 
                          <th>Tarifa(GB)</th>  
+                         <th>Fecha Alta</th> 
+                           
                          
                     </tr>
   ';
@@ -24,11 +24,11 @@ if(isset($_POST["export"]))
   {
    $output .= '
     <tr>  
-                         <td>'.$row["idLinea"].'</td>  
+                         <td>'.$row["nombre"].'</td>  
                          <td>'.$row["telefonoC"].'</td>
-                         <td>'.$row["telefonoL"].'</td>  
-                         <td>'.$row["enUso"].'</td>
                          <td>'.$row["tarifa"].'</td>  
+                         <td>'.$row["fAlta"].'</td>
+                           
                            
                          
                     </tr>
@@ -36,7 +36,7 @@ if(isset($_POST["export"]))
   }
   $output .= '</table>';
   header('Content-Type: application/xls');
-  header('Content-Disposition: attachment; filename=telefonos.xls');
+  header('Content-Disposition: attachment; filename=lineas.xls');
   echo $output;
  }
 }

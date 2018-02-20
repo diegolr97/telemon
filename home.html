@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Document</title>
     <link rel="stylesheet" href="css/home.css">
-    
-    
+
+
 </head>
 <!--Termina Head-->
 
@@ -48,14 +48,32 @@
                 <div class="tab-content" id="myTabContent">
                     <!--primer tabble panel-->
                     <div class="tab-pane fade show active" id="Lineas" role="tabpanel" aria-labelledby="home-tab">
-                       <div class="row">
-                           <div class="col-lg-5 col-md-5 offset-lg-1">
-                               <form action="" class="form-inline">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-1">
+                                <form action="" class="form-inline">
                                     <input type="text" class="form-control" name="busqueda3" id="busqueda3">
                                 </form>
-                           </div>
-                       </div>
-                       <hr>
+                            </div>
+                             <div class="col-lg-1">
+                                <form action="lineasXLS.php" method="POST">
+                                    <button style="width: 85px;" type="submit" name="lineasCalc" class="btn btn-success">CALC</button>
+                                </form>
+                            </div>
+
+                            <div class="col-lg-1">
+                                <form action="lineasPDFver.php" method="POST">
+                                    <button type="submit" name="personaVerPDF" class="btn btn-success">VER PDF</button>
+                                </form>
+
+                            </div>
+                            <div class="col-lg-1">
+                                <form action="lineasPDFdesc.php" method="POST">
+                                    <button type="submit" name="personaDescargarPDF" class="btn btn-success">DES PDF</button>
+                                </form>
+
+                            </div>
+                        </div>
+                        <hr>
                         <div class="row justify-content-center">
                             <div id="datos3" class="col-md-10">
 
@@ -70,15 +88,34 @@
                     <!--segundo tabble panel-->
                     <div class="tab-pane fade" id="Personas" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
-                            <div class="col-lg-5 col-md-5 offset-lg-1 ">
+                            <div class="col-lg-2 offset-lg-1 ">
                                 <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Añadir Persona</button>
                             </div>
 
-                            <div class="col-lg-5 col-md-5 offset-lg-1">
+                            <div class="col-lg-3 offset-lg-1">
                                 <form action="" class="form-inline">
                                     <input type="text" class="form-control" name="busqueda" id="busqueda">
                                 </form>
 
+
+                            </div>
+                            
+                            <div class="col-lg-1">
+                                <form action="personasXLS.php" method="POST">
+                                    <button style="width: 85px;" type="submit" name="personaCalc" class="btn btn-success">CALC</button>
+                                </form>
+                            </div>
+
+                            <div class="col-lg-1">
+                                <form action="personasPDFver.php" method="POST">
+                                    <button type="submit" name="personaVerPDF" class="btn btn-success">VER PDF</button>
+                                </form>
+
+                            </div>
+                            <div class="col-lg-1">
+                                <form action="personasPDFdesc.php" method="POST">
+                                    <button type="submit" name="personaDescargarPDF" class="btn btn-success">DES PDF</button>
+                                </form>
 
                             </div>
 
@@ -101,20 +138,30 @@
                     <div class="tab-pane fade" id="Telefonos" role="tabpanel" aria-labelledby="contact-tab">
                         <div class="row">
                             <div class="col-lg-2 offset-lg-1">
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Añadir Linea</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Añadir Telefono</button>
                             </div>
                             <div class="col-lg-3 offset-lg-1">
                                 <form action="" class="form-inline">
                                     <input type="text" class="form-control" id="busqueda2" name="busqueda2">
                                 </form>
                             </div>
-                            <div class="col-lg-3 offset-lg-2">
+                            <div class="col-lg-1">
                                 <form action="telefonosXLS.php" method="POST">
-                                    <input type="submit" name="export" value="CALC" class="btn btn-primary">
+                                    <button style="width: 85px;" type="submit" name="export" class="btn btn-success">CALC</button>
                                 </form>
-                                <form action="telefonosPDF.php" method="POST">
-                                    <input type="submit" name="export2" value="PDF" class="btn btn-primary">
+                            </div>
+
+                            <div class="col-lg-1">
+                                <form action="telefonosPDF2ver.php" method="POST">
+                                    <button type="submit" name="export2" class="btn btn-success">VER PDF</button>
                                 </form>
+
+                            </div>
+                            <div class="col-lg-1">
+                                <form action="telefonosPDF2desc.php" method="POST">
+                                    <button type="submit" name="export3" class="btn btn-success">DES PDF</button>
+                                </form>
+
                             </div>
                         </div>
 

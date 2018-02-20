@@ -24,7 +24,7 @@ if($buscarPersonas->num_rows > 0)
                 <tr>
                   <th scope="col">ID</th>
                   <th scope="col">nombre</th>
-                  <th scope="col" colspan="2">OPERACIONES</th>
+                  <th scope="col">OPERACIONES</th>
                  </tr>
                </thead>
                <tbody>';
@@ -34,8 +34,9 @@ if($buscarPersonas->num_rows > 0)
             '<tr>
                 <td>'.$filaPersonas['idPersona'].'</td>
                 <td>'.$filaPersonas['nombre'].'</td>
-                <td><a href="procesoModificarPersona.php?codigo='.$filaPersonas['idPersona'].'"><button type="button" class="btn btn-success">Modificar</button> </a><a href="eliminarPersona.php?codigo='.$filaPersonas['idPersona'].'"><button type="button" class="btn btn-danger">Eliminar</button> </a> </td>
-                <td><a href="procesoLineaPersona.php?codigo='.$filaPersonas['idPersona'].'"><button type="button" class="btn btn-success">Asignar Linea</button> </a></td>
+                <td><a href="procesoModificarPersona.php?codigo='.$filaPersonas['idPersona'].'"><button type="button" class="btn btn-success">Modificar</button> </a><a href="eliminarPersona.php?codigo='.$filaPersonas['idPersona'].'"><button type="button" class="btn btn-danger">Eliminar</button> </a>
+                <a href="procesoLineaPersona.php?codigo='.$filaPersonas['idPersona'].'"><button type="button" class="btn btn-success">Asignar Linea</button> </a></td>
+                
                 
                 
                 
