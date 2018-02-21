@@ -1,11 +1,9 @@
 <?php
-
 include("conexion.php");
 
 $tabla="";
-$query="SELECT * FROM linea a, lineapersona b, persona c WHERE a.idLinea=b.idLinea and b.idPersona=c.idPersona and b.activo='Si'";
 
-if(isset($_POST['busqueda3']))
+if(isset($_POST['fecha1']) || isset($_POST['fecha2']))
 {
     $q=$conexion->real_escape_string($_POST['busqueda3']);
     $query="SELECT * FROM linea a, lineapersona b, persona c WHERE a.idLinea=b.idLinea and b.idPersona=c.idPersona and b.activo='Si' and c.nombre LIKE '%".$q."%'";

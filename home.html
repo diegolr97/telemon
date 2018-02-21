@@ -40,7 +40,7 @@
                         <a class="nav-link" id="contact-tab" data-toggle="tab" href="#Telefonos" role="tab" aria-controls="contact" aria-selected="false">Telefonos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="prueba.html">Active</a>
+                        <a class="nav-link" id="consumos-tab" data-toggle="tab" href="#Consumos" role="tab" aria-controls="consumo" aria-selected="false">Consumos</a>
                     </li>
                 </ul>
                 <br>
@@ -173,6 +173,37 @@
 
                     </div>
                     <!--termina tercer tabble panel-->
+                    <!--empieza cuarto tabble panel-->
+                    <div class="tab-pane fade" id="Consumos" role="tabpanel" aria-labelledby="consumos-tab">
+                        <div class="row">
+                            
+                             
+                             
+
+                            <div class="col-lg-1">
+                                <form action="lineasPDFver.php" method="POST">
+                                    <button type="submit" name="personaVerPDF" class="btn btn-success">VER PDF</button>
+                                </form>
+
+                            </div>
+                            <div class="col-lg-1">
+                                <form action="lineasPDFdesc.php" method="POST">
+                                    <button type="submit" name="personaDescargarPDF" class="btn btn-success">DES PDF</button>
+                                </form>
+
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row justify-content-center">
+                            <div id="datos3" class="col-md-10">
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                <!--termina cuarto tabble panel-->
                 </div>
                 <!--                Termina el contenido de los tabble panel-->
 
@@ -216,7 +247,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Formulario Linea</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Formulario Telefono</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
           
@@ -249,6 +280,7 @@
 
 
         <!--    termina seguno modal-->
+        
 
     </div>
 
