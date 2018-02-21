@@ -1,12 +1,25 @@
 <?php
 include("conexion.php");
+session_start();
 
 $tabla="";
 
 if(isset($_POST['fecha1']) || isset($_POST['fecha2']))
 {
-    $q=$conexion->real_escape_string($_POST['busqueda3']);
-    $query="SELECT * FROM linea a, lineapersona b, persona c WHERE a.idLinea=b.idLinea and b.idPersona=c.idPersona and b.activo='Si' and c.nombre LIKE '%".$q."%'";
+    $fechainicio = $_POST['fecha1'];
+    $fechainicio2 = explode('-', $fechainicio);
+    $fechainicio3 = $fechainicio2[0]."-".$fechainicio2[1]."-".$fechainicio2[2];
+    
+    
+    
+    $fechafinal = $_POST['fecha2'];
+    $fechafinal2 = explode('-', $fechafinal);
+    $fechafinal3 = $fechafinal2[0]."-".$fechafinal2[1]."-".$fechafinal2[2];
+    
+
+    
+    
+   $query="SELECT * FROM consumo a, linea b, lineapersona c, persona d WHERE a.idLinea=b.idLinea and b.idLinea=c.idLinea and c.idPersona=d.idPersona and a.fecha BETWEEN '$fechainicio3' AND '$fechafinal3' and b.idLinea='".$_SESSION["codigo2"]."'";
 }
 
 $buscarLineasPersonas=$conexion->query($query);
@@ -17,11 +30,11 @@ if($buscarLineasPersonas->num_rows > 0)
          <caption>Lista de teléfonos*</caption>
              <thead class="hola">
                 <tr>
+                  <th scope="col">ID</th>
                   <th scope="col">NOMBRE</th>
                   <th scope="col">TELEFONO CORTO</th>
-                  <th scope="col">TARIFA</th>
-                  <th scope="col">FECHA DE ALTA</th>
-                  <th scope="col">OPERACIONES</th>
+                  <th scope="col">CONSUMO</th>
+                  <th scope="col">FECHA</th>
                  </tr>
                </thead>
                <tbody>';
@@ -29,15 +42,13 @@ if($buscarLineasPersonas->num_rows > 0)
     {
         $tabla.=
             '<tr>
+                <td>'.$filaLineaPersona['idConsumo'].'</td>
                 <td>'.$filaLineaPersona['nombre'].'</td>
                 <td>'.$filaLineaPersona['telefonoC'].'</td>
-                <td>'.$filaLineaPersona['tarifa'].'GB</td>
-                <td>'.$filaLineaPersona['fAlta'].'</td>
-                <td><a href="procesoBajaLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-warning">Baja</button> </a><a href="HistoricoLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-success">Historico</button> </a><a href="notasLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-success">Notas</button> </a><a href="consumoLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-success">Consumo</button> </a></td>
+                <td>'.$filaLineaPersona['consumo'].'€</td>
+                <td>'.$filaLineaPersona['fecha'].'</td>
                 
-                
-                
-             </tr>';
+              </tr>';
     }
         $tabla.='</tbody></table>';
         

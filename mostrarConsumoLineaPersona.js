@@ -13,8 +13,7 @@ $('#guardar2').click(function(){
               type : "post",
               success : function(response){
                   $("#datosConsumo").html(response);
-                     //response contiene la respuesta al llamado de tu archivo
-                     //aqui actualizas los valores de inmediato llamando a sus respectivas id.
+                     
               }
        })
               

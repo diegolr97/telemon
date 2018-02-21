@@ -57,11 +57,13 @@
                         
                     </form>
                       </div>
-                      <div class="row">
-                          <div id="datosConsumo"></div>
-                      </div>
+                      
                       
                    </div>
+                   <hr>
+                   <div class="row justify-content-center">
+                          <div id="datosConsumo"></div>
+                      </div>
                     
 
                     
