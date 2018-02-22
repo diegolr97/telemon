@@ -27,7 +27,7 @@ if($buscarLineasPersonas->num_rows > 0)
 {
     $tabla.=
         '<table class="table table-bordered table-striped">
-         <caption>Lista de teléfonos*</caption>
+         <caption>Lista de consumos*</caption>
              <thead class="hola">
                 <tr>
                   <th scope="col">ID</th>
