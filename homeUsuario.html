@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Empieza Head-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/home.css">
+
+
+</head>
+<!--Termina Head-->
+
+<!--Empieza Body-->
+
+<body>
+    <!--Título-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="tittle">TELEFONOS AYUNTAMIENTO MONTELLANO</h1>
+            </div>
+
+        </div>
+        <!-- Fin Título-->
+
+        <!--tabbel panel-->
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#Lineas" role="tab" aria-controls="home" aria-selected="true">Lineas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Personas" role="tab" aria-controls="profile" aria-selected="false">Personas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#Telefonos" role="tab" aria-controls="contact" aria-selected="false">Telefonos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="consumos-tab" data-toggle="tab" href="#Consumos" role="tab" aria-controls="consumo" aria-selected="false">Consumos</a>
+                    </li>
+                </ul>
+                <br>
+                <!--Empieza el contenido de los tabble panel-->
+                <div class="tab-content" id="myTabContent">
+                    <!--primer tabble panel-->
+                    <div class="tab-pane fade show active" id="Lineas" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-1">
+                                <form action="" class="form-inline">
+                                    <input type="text" class="form-control" name="busqueda3Usuario" id="busqueda3Usuario">
+                                </form>
+                            </div>
+                             <div class="col-lg-1">
+                                <form action="lineasXLS.php" method="POST">
+                                    <button style="width: 85px;" type="submit" name="lineasCalc" class="btn btn-success">CALC</button>
+                                </form>
+                            </div>
+
+                            <div class="col-lg-1">
+                                <form action="lineasPDFver.php" method="POST">
+                                    <button type="submit" name="personaVerPDF" class="btn btn-success">VER PDF</button>
+                                </form>
+
+                            </div>
+                            <div class="col-lg-1">
+                                <form action="lineasPDFdesc.php" method="POST">
+                                    <button type="submit" name="personaDescargarPDF" class="btn btn-success">DES PDF</button>
+                                </form>
+
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row justify-content-center">
+                            <div id="datos3Usuario" class="col-md-10">
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!--termina primer tabble panel-->
+
+                    <!--segundo tabble panel-->
+                    <div class="tab-pane fade" id="Personas" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row">
+                            
+
+                            <div class="col-lg-3 offset-lg-1">
+                                <form action="" class="form-inline">
+                                    <input type="text" class="form-control" name="busquedaUsuario" id="busquedaUsuario">
+                                </form>
+
+
+                            </div>
+                            
+                            <div class="col-lg-1">
+                                <form action="personasXLS.php" method="POST">
+                                    <button style="width: 85px;" type="submit" name="personaCalc" class="btn btn-success">CALC</button>
+                                </form>
+                            </div>
+
+                            <div class="col-lg-1">
+                                <form action="personasPDFver.php" method="POST">
+                                    <button type="submit" name="personaVerPDF" class="btn btn-success">VER PDF</button>
+                                </form>
+
+                            </div>
+                            <div class="col-lg-1">
+                                <form action="personasPDFdesc.php" method="POST">
+                                    <button type="submit" name="personaDescargarPDF" class="btn btn-success">DES PDF</button>
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                        <hr>
+                        <div class="row justify-content-center">
+                            <div id="datosUsuario" class="col-md-10">
+
+
+                        </div>
+
+                        </div>
+                    </div>
+                    <!--termina segundo tabble panel-->
+
+                    <!--tercer tabble panel-->
+                    <div class="tab-pane fade" id="Telefonos" role="tabpanel" aria-labelledby="contact-tab">
+                        <div class="row">
+                            
+                            <div class="col-lg-3 offset-lg-1">
+                                <form action="" class="form-inline">
+                                    <input type="text" class="form-control" id="busqueda2Usuario" name="busqueda2Usuario">
+                                </form>
+                            </div>
+                            <div class="col-lg-1">
+                                <form action="telefonosXLS.php" method="POST">
+                                    <button style="width: 85px;" type="submit" name="export" class="btn btn-success">CALC</button>
+                                </form>
+                            </div>
+
+                            <div class="col-lg-1">
+                                <form action="telefonosPDF2ver.php" method="POST">
+                                    <button type="submit" name="export2" class="btn btn-success">VER PDF</button>
+                                </form>
+
+                            </div>
+                            <div class="col-lg-1">
+                                <form action="telefonosPDF2desc.php" method="POST">
+                                    <button type="submit" name="export3" class="btn btn-success">DES PDF</button>
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="row justify-content-center">
+                            <div id="datos2Usuario" class="col-md-10">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--termina tercer tabble panel-->
+                    <!--empieza cuarto tabble panel-->
+                    <div class="tab-pane fade" id="Consumos" role="tabpanel" aria-labelledby="consumos-tab">
+                        <div class="row">
+                            
+                             
+                             
+
+                            <div class="col-lg-1">
+                                <form action="lineasPDFver.php" method="POST">
+                                    <button type="submit" name="personaVerPDF" class="btn btn-success">VER PDF</button>
+                                </form>
+
+                            </div>
+                            <div class="col-lg-1">
+                                <form action="lineasPDFdesc.php" method="POST">
+                                    <button type="submit" name="personaDescargarPDF" class="btn btn-success">DES PDF</button>
+                                </form>
+
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row justify-content-center">
+                            <div id="datos3" class="col-md-10">
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                <!--termina cuarto tabble panel-->
+                </div>
+                <!--                Termina el contenido de los tabble panel-->
+
+            </div>
+
+        </div>
+        <!--        Termina tabbel Panel-->
+
+        
+        
+
+    </div>
+
+
+    <!--   JQuery, Poppers, JavaScriptBootstrap-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="mostrarPersonasUsuario.js"></script>
+    <script src="mostrarLineasUsuario.js"></script>
+    <script src="mostrarLineaPersonaUsuario.js"></script>
+</body>
+<!--Termina Body-->
+
+</html>

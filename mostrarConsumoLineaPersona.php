@@ -19,7 +19,7 @@ if(isset($_POST['fecha1']) || isset($_POST['fecha2']))
 
     
     
-   $query="SELECT * FROM consumo a, linea b, lineapersona c, persona d WHERE a.idLinea=b.idLinea and b.idLinea=c.idLinea and c.idPersona=d.idPersona and a.fecha BETWEEN '$fechainicio3' AND '$fechafinal3' and b.idLinea='".$_SESSION["codigo2"]."'";
+   $query="SELECT * FROM consumo a, linea b, lineapersona c, persona d WHERE a.idLinea=b.idLinea and b.idLinea=c.idLinea and c.idPersona=d.idPersona and a.fecha BETWEEN '$fechainicio3' AND '$fechafinal3' and b.idLinea='".$_SESSION["codigo2"]."' GROUP BY b.idLinea ";
 }
 
 $buscarLineasPersonas=$conexion->query($query);

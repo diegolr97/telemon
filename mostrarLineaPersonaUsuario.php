@@ -5,9 +5,9 @@ include("conexion.php");
 $tabla="";
 $query="SELECT * FROM linea a, lineapersona b, persona c WHERE a.idLinea=b.idLinea and b.idPersona=c.idPersona and b.activo='Si'";
 
-if(isset($_POST['busqueda3']))
+if(isset($_POST['busqueda3Usuario']))
 {
-    $q=$conexion->real_escape_string($_POST['busqueda3']);
+    $q=$conexion->real_escape_string($_POST['busqueda3Usuario']);
     $query="SELECT * FROM linea a, lineapersona b, persona c WHERE a.idLinea=b.idLinea and b.idPersona=c.idPersona and b.activo='Si' and c.nombre LIKE '%".$q."%'";
 }
 
@@ -23,7 +23,7 @@ if($buscarLineasPersonas->num_rows > 0)
                   <th scope="col">TELEFONO CORTO</th>
                   <th scope="col">TARIFA</th>
                   <th scope="col">FECHA DE ALTA</th>
-                  <th scope="col">OPERACIONES</th>
+                  
                  </tr>
                </thead>
                <tbody>';
@@ -35,9 +35,7 @@ if($buscarLineasPersonas->num_rows > 0)
                 <td>'.$filaLineaPersona['telefonoC'].'</td>
                 <td>'.$filaLineaPersona['tarifa'].'GB</td>
                 <td>'.$filaLineaPersona['fAlta'].'</td>
-                <td><a href="procesoBajaLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-warning">Baja</button> </a><a href="HistoricoLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-success">Historico</button> </a><a href="notasLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-success">Notas</button> </a><a href="consumoLineaPersona.php?codigo='.$filaLineaPersona['idLinea'].'"><button type="button" class="btn btn-success">Consumo</button> </a></td>
-                
-            </tr>';
+              </tr>';
     }
         $tabla.='</tbody></table>';
         
