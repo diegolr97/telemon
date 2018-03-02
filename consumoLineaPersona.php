@@ -20,6 +20,8 @@
             $consulta="SELECT * FROM linea a, lineapersona b, persona c where a.idLinea=b.idLinea and b.idPersona=c.idPersona and a.idLinea='" .$_SESSION["codigo2"]."' and b.activo='Si'";
             $resultado=$conexion->query($consulta);
             $row2=$resultado->fetch_assoc();
+            $_SESSION["idPer"]=$row2['idPersona'];
+            
                 ?>
 
 
@@ -44,8 +46,9 @@
                             </div>
 
                             <div class="col-lg-1">
-                                <form action="consumosPDFver.php" method="POST">
-                                    <button type="" id="consumosVerPDF" name="consumosVerPDF" class="btn btn-success">VER PDF</button>
+                                <form method="POST">
+                                   <a target="_blank" href="javascript:reportePDF();" class="btn btn-success">VER PDF</a>
+                                    
                                 </form>
 
                             </div>

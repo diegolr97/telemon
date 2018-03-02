@@ -10,7 +10,7 @@ if(empty($consumo) || empty($fecha)){
     
     
 }else{
-    $consulta="INSERT INTO consumo (idLinea, consumo, fecha) VALUES ('".$_SESSION["codigo2"]."', '$consumo', '$fecha')";
+    $consulta="INSERT INTO consumo (idLinea, idPersona, consumo, fecha) VALUES ('".$_SESSION["codigo2"]."', '".$_SESSION["idPer"]."' , '$consumo', '$fecha')";
     $resultado= mysqli_query($conexion, $consulta);
     
     

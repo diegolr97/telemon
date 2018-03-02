@@ -19,7 +19,7 @@ if(isset($_POST['fecha1']) || isset($_POST['fecha2']))
 
     
     
-   $query="SELECT * FROM consumo a, linea b, lineapersona c, persona d WHERE a.idLinea=b.idLinea and b.idLinea=c.idLinea and c.idPersona=d.idPersona and a.fecha BETWEEN '$fechainicio3' AND '$fechafinal3' and b.idLinea='".$_SESSION["codigo2"]."' GROUP BY b.idLinea ";
+   $query="select * from linea a, lineapersona b, consumo c, persona d where a.idLinea=b.idLinea and b.idLinea =c.idLinea and d.idPersona = b.idPersona and b.idPersona=c.idPersona and c.fecha BETWEEN '$fechainicio3' AND '$fechafinal3' and a.idLinea='".$_SESSION["codigo2"]."'";
 }
 
 $buscarLineasPersonas=$conexion->query($query);
@@ -30,7 +30,6 @@ if($buscarLineasPersonas->num_rows > 0)
          <caption>Lista de consumos*</caption>
              <thead class="hola">
                 <tr>
-                  <th scope="col">ID</th>
                   <th scope="col">NOMBRE</th>
                   <th scope="col">TELEFONO CORTO</th>
                   <th scope="col">CONSUMO</th>
@@ -42,7 +41,6 @@ if($buscarLineasPersonas->num_rows > 0)
     {
         $tabla.=
             '<tr>
-                <td>'.$filaLineaPersona['idConsumo'].'</td>
                 <td>'.$filaLineaPersona['nombre'].'</td>
                 <td>'.$filaLineaPersona['telefonoC'].'</td>
                 <td>'.$filaLineaPersona['consumo'].'€</td>
