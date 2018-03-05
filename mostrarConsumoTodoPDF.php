@@ -9,7 +9,7 @@ class myPDF extends FPDF{
         $this->Cell(200,5,'Ayuntamiento Montellano',0,0,'C');
         $this->Ln();
         $this->SetFont('Times','',12);
-        $this->Cell(200,10,'Consumo de la Linea',0,0,'C');
+        $this->Cell(200,10,'Consumo de personas activas',0,0,'C');
         $this->Ln(20);
     }
     function footer(){
@@ -36,7 +36,7 @@ class myPDF extends FPDF{
     $fechafinal2 = explode('-', $fechafinal);
     $fechafinal3 = $fechafinal2[0]."-".$fechafinal2[1]."-".$fechafinal2[2];
         
-    $query = "select * from linea a, lineapersona b, consumo c, persona d where a.idLinea=b.idLinea and b.idLinea =c.idLinea and d.idPersona = b.idPersona and b.idPersona=c.idPersona and c.fecha BETWEEN '$fechainicio3' AND '$fechafinal3' and a.idLinea='".$_SESSION["codigo2"]."'";
+    $query = "select * from linea a, lineapersona b, consumo c, persona d where a.idLinea=b.idLinea and b.idLinea =c.idLinea and d.idPersona = b.idPersona and b.idPersona=c.idPersona and c.fecha BETWEEN '$fechainicio3' AND '$fechafinal3' and b.activo='Si'";
         
     $resultado = $conexion->query($query);
     while($row=$resultado->fetch_assoc())

@@ -41,7 +41,7 @@
                     </div>
                      <div class="col-lg-1">
                                 <form method="POST">
-                                    <button style="width: 85px;" type="button" id="consumosCalc" name="consumosCalc" class="btn btn-success">CALC</button>
+                                   <a href="javascript:reporteXLS();" class="btn btn-success">CALC</a>
                                 </form>
                             </div>
 
@@ -52,12 +52,7 @@
                                 </form>
 
                             </div>
-                            <div class="col-lg-1">
-                                <form method="POST">
-                                    <button type="button" id="consumosDescargarPDF" name="consumosDescargarPDF" class="btn btn-success">DES PDF</button>
-                                </form>
-
-                            </div>
+                            
                    </div>
                    <hr>
                    <div class="row">
@@ -152,6 +147,7 @@
     <script src="insertarConsumo.js"></script>
     <script src="mostrarConsumoLineaPersona.js"></script>
     <script src="consumosPDFver.js"></script>
+    <script src="consumoXLS.js"></script>
 </body>
 
 </html>

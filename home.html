@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Document</title>
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/footer.css">
 
 
 </head>
@@ -42,6 +43,9 @@
                     <li class="nav-item">
                         <a class="nav-link" id="consumos-tab" data-toggle="tab" href="#Consumos" role="tab" aria-controls="consumo" aria-selected="false">Consumos</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="historico-tab" data-toggle="tab" href="#Historico" role="tab" aria-controls="historico" aria-selected="false">Historico Lineas</a>
+                    </li>
                 </ul>
                 <br>
                 <!--Empieza el contenido de los tabble panel-->
@@ -54,7 +58,7 @@
                                     <input type="text" class="form-control" name="busqueda3" id="busqueda3">
                                 </form>
                             </div>
-                             <div class="col-lg-1">
+                            <div class="col-lg-1">
                                 <form action="lineasXLS.php" method="POST">
                                     <button style="width: 85px;" type="submit" name="lineasCalc" class="btn btn-success">CALC</button>
                                 </form>
@@ -99,7 +103,7 @@
 
 
                             </div>
-                            
+
                             <div class="col-lg-1">
                                 <form action="personasXLS.php" method="POST">
                                     <button style="width: 85px;" type="submit" name="personaCalc" class="btn btn-success">CALC</button>
@@ -176,26 +180,42 @@
                     <!--empieza cuarto tabble panel-->
                     <div class="tab-pane fade" id="Consumos" role="tabpanel" aria-labelledby="consumos-tab">
                         <div class="row">
-                            
-                             
-                             
+                            <div class="col-lg-2">
+                                <form method="POST">
+                                    <a style="margin-top:30px;" target="_blank" href="javascript:reportePDF2()" class="btn btn-success">PDF CONSUMOS</a>
 
-                            <div class="col-lg-1">
-                                <form action="lineasPDFver.php" method="POST">
-                                    <button type="submit" name="personaVerPDF" class="btn btn-success">VER PDF</button>
+                                </form>
+                            </div>
+                            <div class="col-lg-2">
+                                <form method="POST">
+                                    <a style="margin-top:30px;" target="_blank" href="javascript:reporteXLS2();" class="btn btn-success">XLS CONSUMOS</a>
+
                                 </form>
 
                             </div>
-                            <div class="col-lg-1">
-                                <form action="lineasPDFdesc.php" method="POST">
-                                    <button type="submit" name="personaDescargarPDF" class="btn btn-success">DES PDF</button>
+                            <div class="col-lg-5 offset-lg-1">
+                                <form class="form-row" method="POST">
+
+                                    <div class="col-5">
+                                        <label for="fechaInicioConsumo2">Fecha Inicio</label>
+                                        <input type="date" class="form-control" name="fechaInicioConsumo2" id="fechaInicioConsumo2">
+                                    </div>
+                                    <div class="col-5">
+                                        <label for="fechaFinalConsumo2">Fecha Final</label>
+                                        <input type="date" class="form-control" name="fechaFinalConsumo2" id="fechaFinalConsumo2">
+                                    </div>
+                                    <button name="guardar3" id="guardar3" type="button" class="btn btn-primary">Buscar</button>
+
+
+
                                 </form>
 
                             </div>
+
                         </div>
                         <hr>
                         <div class="row justify-content-center">
-                            <div id="datos3" class="col-md-10">
+                            <div id="datos4" class="col-md-10">
 
 
                             </div>
@@ -203,7 +223,44 @@
                         </div>
 
                     </div>
-                <!--termina cuarto tabble panel-->
+                    <!--termina cuarto tabble panel-->
+                    <!--Empieza quinto tabble panel-->
+                    <div class="tab-pane fade" id="Historico" role="tabpanel" aria-labelledby="historico-tab">
+                        <div class="row">
+                            
+                            <div class="col-lg-6 offset-lg-1">
+                            <form action="" class="form-inline">
+                                <input type="text" class="form-control" name="busqueda4" id="busqueda4">
+                            </form>
+                            
+                            </div>
+                            <div class="col-lg-1">
+                                <form action="lineasHistoricoXLS.php" method="POST">
+                                    <button style="width: 85px;" type="submit" name="historicoLineasXLS" class="btn btn-success">CALC</button>
+                                </form>
+                            </div>
+
+                            <div class="col-lg-1">
+                                <form action="lineasHistoricoPDFver.php" method="POST">
+                                    <button type="submit" name="historicoLineasPDF" class="btn btn-success">VER PDF</button>
+                                </form>
+
+                            </div>
+                            
+                            
+
+                        </div>
+                        <hr>
+                        <div class="row justify-content-center">
+                            <div id="datos5" class="col-md-10">
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!--Termina quinto tabble panel-->
                 </div>
                 <!--                Termina el contenido de los tabble panel-->
 
@@ -280,9 +337,29 @@
 
 
         <!--    termina seguno modal-->
-        
-        <footer><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Telemon</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Diego Lucas Romero</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional License</a>.</footer>
-        
+        <footer class="page-footer font-small stylish-color-dark pt-4 mt-4">
+
+
+
+
+            <!--Copyright-->
+            <div class="footer py-3 text-center">
+                <div class="container-fluid">
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Telemon</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Diego Lucas Romero</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional License</a>
+
+
+
+                </div>
+            </div>
+            <!--/.Copyright-->
+
+        </footer>
+        <!--/.Footer-->
+
+
+
+
+
 
     </div>
 
@@ -295,6 +372,10 @@
     <script src="mostrarPersonas.js"></script>
     <script src="mostrarLineas.js"></script>
     <script src="mostrarLineaPersona.js"></script>
+    <script src="mostrarLineaPersonaHistorico.js"></script>
+    <script src="mostrarConsumoTodo.js"></script>
+    <script src="mostrarConsumoTodoPDF.js"></script>
+    <script src="mostrarConsumoTodoXLS.js"></script>
 </body>
 <!--Termina Body-->
 

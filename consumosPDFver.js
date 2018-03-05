@@ -3,3 +3,4 @@ function reportePDF(){
     var fechafinal =  $('#fechaFinalConsumo').val();
     window.open('consumosPDFver.php?fechainicio3='+fechainicio+'&fechafinal3='+fechafinal);
 }
+
