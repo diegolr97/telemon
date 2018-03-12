@@ -10,7 +10,7 @@ class myPDF extends FPDF{
         $this->Cell(200,5,'Ayuntamiento Montellano',0,0,'C');
         $this->Ln();
         $this->SetFont('Times','',12);
-        $this->Cell(200,10,'Lineas',0,0,'C');
+        $this->Cell(200,10,'Historico Lineas',0,0,'C');
         $this->Ln(20);
     }
     function footer(){

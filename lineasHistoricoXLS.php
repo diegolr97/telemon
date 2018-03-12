@@ -16,7 +16,7 @@ if(isset($_POST["historicoLineasXLS"]))
                          <th>telefonoC</th>
                          <th>Tarifa(GB)</th>  
                          <th>Fecha Alta</th>
-                         <th>Fecha Baja</th> 
+                         <th>Fecha Baja</th>
                            
                          
                     </tr>

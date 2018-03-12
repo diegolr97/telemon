@@ -66,6 +66,7 @@
                                 <input type="text" class="form-control" name="fAltaInsertarLineaPersona" id="fAltaInsertarLineaPersona" value="<?php echo date("Y-m-d");?>">
                                 
                             </div>
+                            
 
 
                             <div class="form-group">

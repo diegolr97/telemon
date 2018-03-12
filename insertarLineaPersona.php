@@ -15,7 +15,7 @@ $row2=$resultado4->fetch_assoc();
 $filas= mysqli_num_rows($resultado4);
 
 if($filas>0){
-$consulta5="UPDATE lineapersona set activo='Si' WHERE idLinea='".$row['idLinea']."' and idPersona='$codigo'";
+$consulta5="UPDATE lineapersona set activo='Si', fAlta='$fecha' WHERE idLinea='".$row['idLinea']."' and idPersona='$codigo'";
 $resultado5= mysqli_query($conexion, $consulta5);
 
 $consulta6="UPDATE linea set enUso='Si', disponible='No' WHERE telefonoC='$telefonoC'";

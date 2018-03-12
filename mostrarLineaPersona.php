@@ -20,9 +20,10 @@ if($buscarLineasPersonas->num_rows > 0)
              <thead class="hola">
                 <tr>
                   <th scope="col">NOMBRE</th>
+                  <th scope="col">TELEFONO LARGO</th>
                   <th scope="col">TELEFONO CORTO</th>
                   <th scope="col">TARIFA</th>
-                  <th scope="col">FECHA DE ALTA</th>
+                  <th scope="col">FECHA DE ASIGNACION</th>
                   <th scope="col">OPERACIONES</th>
                  </tr>
                </thead>
@@ -32,6 +33,7 @@ if($buscarLineasPersonas->num_rows > 0)
         $tabla.=
             '<tr>
                 <td>'.$filaLineaPersona['nombre'].'</td>
+                <td>'.$filaLineaPersona['telefonoL'].'</td>
                 <td>'.$filaLineaPersona['telefonoC'].'</td>
                 <td>'.$filaLineaPersona['tarifa'].'GB</td>
                 <td>'.$filaLineaPersona['fAlta'].'</td>
