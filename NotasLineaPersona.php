@@ -20,22 +20,22 @@
             $row2=$resultado->fetch_assoc();
                 ?>
 
-        <h1 class="tittle">Notas | <label><?php echo $row2['nombre']; echo "(".$row2['telefonoC'].")";?></label></h1>
-        
-        <hr>
-        <h3 class="tittle">Notas/Recordatorio</h3>
-                    <form action="insertarNotaLinea.php?codigo2=<?php echo $row2['idLinea']; ?>" method="POST">
+            <h1 class="tittle">Notas | <label><?php echo $row2['nombre']; echo "(".$row2['telefonoC'].")";?></label></h1>
 
-                        <div class="form-group">
-                            <label for="textAreaObservacion">Descripcion</label>
-                            <textarea class="form-control" name="textAreaObservacion" id="textAreaObservacion" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Añadir</button>
+            <hr>
+            <h3 class="tittle">Notas/Recordatorio</h3>
+            <form action="insertarNotaLinea.php?codigo2=<?php echo $row2['idLinea']; ?>" method="POST">
 
-                    </form>
-                    <hr>
+                <div class="form-group">
+                    <label for="textAreaObservacion">Descripcion</label>
+                    <textarea class="form-control" name="textAreaObservacion" id="textAreaObservacion" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Añadir</button>
 
-                    <?php
+            </form>
+            <hr>
+
+            <?php
             $codigo=$_GET['codigo'];
             include("conexion.php");
             $consulta="SELECT * FROM observaciones where idLinea='$codigo' ORDER BY fecha DESC";
@@ -64,6 +64,24 @@
             }
                         
                         ?>
+                <footer class="page-footer font-small stylish-color-dark pt-4 mt-4">
+
+
+
+
+                    <!--Copyright-->
+                    <div class="footer py-3 text-center">
+                        <div class="container-fluid">
+                            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Telemon</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Diego Lucas Romero</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional License</a>
+
+
+
+                        </div>
+                    </div>
+                    <!--/.Copyright-->
+
+                </footer>
+                <!--/.Footer-->
 
     </div>
 
