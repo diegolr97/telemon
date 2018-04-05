@@ -24,7 +24,7 @@
                  ?>
 
 
-        <h1 class="tittle"> Asignar Linea | <label><?php echo "(".$row['nombre'].")";?></label></h1>
+        <h1 class="tittle"> Asignar Telefono | <label><?php echo "(".$row['nombre'].")";?></label></h1>
         
         <hr>
         <div class="row">
@@ -37,7 +37,7 @@
                             <input type="text" name="nombrePersonaModificar" class="form-control" placeholder="Escriba el nuevo nombre..." value="<?php echo $row['nombre']; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="comboLinea">Lineas</label>
+                            <label for="comboLinea">Telefonos Cortos</label>
                             <select class="form-control" id="comboLinea" name="comboLinea">
                                     <?php
                                 include("conexion.php");
